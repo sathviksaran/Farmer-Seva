@@ -5,7 +5,7 @@ export default function CardItem(props) {
    
         <div className='relative group flex flex-col items-center justify-center rounded-md overflow-hidden gap-x-4 bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 transition p-3'>
           <div className='relative aspect-square w-full h-full rounded-md overflow-hidden'>
-            <img className='object-cover h-full w-60' src={props.img} fill></img>
+            <img className='object-cover h-5/6 w-60' src={props.img} fill></img>
           </div>
           <div className='flex flex-col items-start  gap-y-1'>
             <p className='font-semibold truncate w-full'>{props.name}</p>

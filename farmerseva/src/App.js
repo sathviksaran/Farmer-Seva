@@ -102,7 +102,7 @@ let App = (props) => {
                   Confirm to logout Are you Sure ?
                   </div>
                   <div className='flex gap-2 gap-x-2 w-full h-full overflow-hidden items-center justify-center align-middle'>
-                    {/* <button className='bg-gray-600 bg-neutral-400/10 hover:bg-neutral-400/5 text-center p-1.5 w-full rounded-md'>Cancel</button> */}
+                     <button className='bg-gray-600 bg-neutral-400/10 hover:bg-neutral-400/5 text-center p-1.5 w-full rounded-md'>Cancel</button> 
                     <button className='btn btn-danger hover:bg-red-400 text-center p-1.5 w-full ' onClick={()=>logoutHandler()}>ok</button>
                   </div>
                  
