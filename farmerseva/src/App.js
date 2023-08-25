@@ -17,10 +17,12 @@ let App = (props) => {
   const navigate = useNavigate()
   const logoutHandler = () => {
     console.log("logout")
-    signOut(auth).then((res) => {
+    signOut(auth)
+    .then((res) => {
       setusername(null)
       navigate("/")
-    }).catch((e) => console.log(e))
+    })
+    .catch((e) => console.log(e))
   
 
   }
@@ -97,13 +99,14 @@ let App = (props) => {
               gap-y-3
             "
                 >
-                
+                <div className='grid grid-cols-1 gap-y-3'>
                   <div>
                   Confirm to logout Are you Sure ?
                   </div>
                   <div className='flex gap-2 gap-x-2 w-full h-full overflow-hidden items-center justify-center align-middle'>
                      <button className='bg-gray-600 bg-neutral-400/10 hover:bg-neutral-400/5 text-center p-1.5 w-full rounded-md'>Cancel</button> 
                     <button className='btn btn-danger hover:bg-red-400 text-center p-1.5 w-full ' onClick={()=>logoutHandler()}>ok</button>
+                  </div>
                   </div>
                  
                 </Dialog.Description>
