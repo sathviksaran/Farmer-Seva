@@ -43,7 +43,7 @@ export default function Home({className}) {
       `,
       className
     )}>
-       <p className='p-2 items-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'> Farmer Seva</p>
+       <p className='p-2 items-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-white'> Farmer Seva</p>
     </div>
        
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 m-4'>
