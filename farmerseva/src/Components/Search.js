@@ -5,13 +5,13 @@ import { dataprovider } from '../Context'
 export default function Search() {
   const {images}=useContext(dataprovider)
   const data=images
-  document.getElementById("search").addEventListener('keyup',()=>{
-    var search=document.getElementById("search").value
-   const sample=images.filter((value,index)=>{
-    return value.name.includes(search)>-1
-   })
-   console.log(sample)
-  })
+  // document.getElementById("search").addEventListener('keyup',()=>{
+  //   var search=document.getElementById("search").value
+  //  const sample=images.filter((value,index)=>{
+  //   return value.name.includes(search)>-1
+  //  })
+  //  console.log(sample)
+  // })
 
   return (
     <div>
