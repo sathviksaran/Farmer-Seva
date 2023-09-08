@@ -6,41 +6,42 @@ import { dataprovider } from './Context';
 import NotFound from './Components/NotFound';
 import Search from './Components/Search';
 import Sideicon from './Components/Sideicon'
-import { FaHome, FaSearch, FaUser, FaSignOutAlt, FaPlus, FaAccessibleIcon } from 'react-icons/fa'
+import { FaHome, FaSearch, FaUser, FaSignOutAlt, FaPlus, FaAccessibleIcon, FaShoppingCart } from 'react-icons/fa'
 import { signOut } from 'firebase/auth'
 import { auth } from './Components/console'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import * as Dialog from '@radix-ui/react-dialog'
 import { IoMdClose } from 'react-icons/io';
+import Cart from './Components/Cart';
+import AddItem from './Components/AddItem';
+import Profile from './Components/Profile';
 let App = (props) => {
   const { username, setusername } = useContext(dataprovider)
   const navigate = useNavigate()
   const logoutHandler = () => {
     console.log("logout")
-    signOut(auth)
-    .then((res) => {
+    signOut(auth).then((res) => {
       setusername(null)
       navigate("/")
-    })
-    .catch((e) => console.log(e))
-  
+    }).catch((e) => console.log(e))
+
 
   }
 
-  
+
 
   return (
     <div className='px-3 py-2 bg-black'>
 
       {
         username != null &&
-        <div className='fixed top-2 left-1 bottom-2 h-screen w-16 flex rounded-md flex-col bg-gray-800 text-white  shadow-lg'>
+        <div className='fixed top-2 left-1 bottom-2 h-screen w-16 flex rounded-md flex-col bg-gray-800 text-white  shadow-lg sidebardisplay'>
           <Link to="/home"><Sideicon icon={<FaHome size="28"></FaHome>} text="home"></Sideicon></Link>
           <Link to="/search"><Sideicon icon={<FaSearch size="28"></FaSearch>} text="search"></Sideicon></Link>
-          <Sideicon icon={<FaUser size="28"></FaUser>} text="profile"></Sideicon>
-          <Sideicon icon={<FaPlus size="28"></FaPlus>} text="add item"></Sideicon>
-
-          <Dialog.Root  className='ml-16'>
+          <Link to="/profile"><Sideicon icon={<FaUser size="28"></FaUser>} text="profile"></Sideicon></Link>
+          <Link to="/additem"><Sideicon icon={<FaPlus size="28"></FaPlus>} text="add item"></Sideicon></Link>
+          <Link to="/cart"><Sideicon icon={<FaShoppingCart size="28"></FaShoppingCart>}></Sideicon></Link>
+          <Dialog.Root className='ml-16'>
             <Dialog.Trigger asChild>
               <button><Sideicon icon={<FaSignOutAlt size="28"></FaSignOutAlt>} text="log out"></Sideicon></button>
             </Dialog.Trigger>
@@ -99,16 +100,15 @@ let App = (props) => {
               gap-y-3
             "
                 >
-                <div className='grid grid-cols-1 gap-y-3'>
+
                   <div>
-                  Confirm to logout Are you Sure ?
+                    Confirm to logout Are you Sure ?
                   </div>
                   <div className='flex gap-2 gap-x-2 w-full h-full overflow-hidden items-center justify-center align-middle'>
-                     <button className='bg-gray-600 bg-neutral-400/10 hover:bg-neutral-400/5 text-center p-1.5 w-full rounded-md'>Cancel</button> 
-                    <button className='btn btn-danger hover:bg-red-400 text-center p-1.5 w-full ' onClick={()=>logoutHandler()}>ok</button>
+                    {/* <button className='bg-gray-600 bg-neutral-400/10 hover:bg-neutral-400/5 text-center p-1.5 w-full rounded-md'>Cancel</button> */}
+                    <button className='btn btn-danger hover:bg-red-400 text-center p-1.5 w-full ' onClick={() => logoutHandler()}>ok</button>
                   </div>
-                  </div>
-                 
+
                 </Dialog.Description>
 
                 <Dialog.Close asChild>
@@ -146,6 +146,9 @@ let App = (props) => {
           <>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route path='/search' element={<Search></Search>}></Route>
+            <Route path='/cart' element={<Cart></Cart>}></Route>
+            <Route path='/additem' element={<AddItem></AddItem>}></Route>
+            <Route path='/profile' element={<Profile></Profile>}></Route>
           </>
         }
 

@@ -41,15 +41,15 @@ export default function Login() {
     }
   }
   return (
-    <section class="bg-gray-900">
+    <section class="bg-gray-50 dark:bg-gray-900">
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <p class="flex items-center text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
+      <p class="flex items-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
           <img class="w-8 h-8 mr-2" style={{borderRadius:"100px"}} src={logo} alt="logo"></img>
           Farmer Seva 
       </p>
-        <div class="w-full bg-gray rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700">
+        <div class="w-full bg-gray rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8" style={{justifyContent:"center",alignItems:"center",}}>
-            <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               {toggle==="sign in"?"Sign in to":"Sign up"} your account
             </h1>
             <div id="message" className='text-white'></div>

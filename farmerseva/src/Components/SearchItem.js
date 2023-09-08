@@ -1,15 +1,21 @@
-import React, { useCallback, useState } from 'react'
-import paddy from '../Images/paddy2.jpg'
+import React, { useCallback, useState,useContext } from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
+import {dataprovider} from '../Context.js'
 export default function SearchItem(props) {
-    const [toggle,settoggle]=useState(false)
-    const handleLike=useCallback(()=>{
-        settoggle((currentval)=>currentval===false?true:false)
-    },[])
+  const {setCart} = useContext(dataprovider);                                                                                               
+  
+  const [toggle,settoggle]=useState(false)
+  const likehandle=()=>{
+    settoggle((currentval)=>currentval===false?true:false)
+    setCart(props)
+ 
+  }
+  console.log(toggle)
   return (
     <div
    
     className="
+    group
       flex 
       items-center 
       gap-x-3 
@@ -28,6 +34,7 @@ export default function SearchItem(props) {
         max-h-[48px] 
         max-w-[48px] 
         overflow-hidden
+        
       "
     >
       <img
@@ -36,25 +43,15 @@ export default function SearchItem(props) {
         alt="MediaItem"
         className="object-cover"
       />
+      
     </div>
+  
     <div className="flex flex-col gap-y-1 overflow-hidden">
       <p className="text-white truncate">{props.name}</p>
     
     </div>
   <div className=' float-right right-0 mr-20 absolute'>
-   
-  
-  <button 
-      className="
-        cursor-pointer 
-        hover:opacity-75 
-        transition
-      "
-      onClick={handleLike}
-    >
-      <FaShoppingCart color={toggle ? '#22c55e' : 'white'}></FaShoppingCart>
-    </button>
-    
+  <FaShoppingCart onClick={likehandle} color={toggle ? '#22c55e' : 'white'}></FaShoppingCart>
   </div>
   </div>
   )
